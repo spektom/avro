@@ -55,10 +55,13 @@ add_person(avro_file_writer_t db, const char *first, const char *last,
 {
 	avro_datum_t person = avro_record(person_schema);
 
-	avro_datum_t id_datum = avro_int64(++id);
+	avro_schema_t id_schema = avro_schema_long();
+	avro_schema_t age_schema = avro_schema_int();
+
+	avro_datum_t id_datum = avro_int64(id_schema, ++id);
 	avro_datum_t first_datum = avro_string(first);
 	avro_datum_t last_datum = avro_string(last);
-	avro_datum_t age_datum = avro_int32(age);
+	avro_datum_t age_datum = avro_int32(age_schema, age);
 	avro_datum_t phone_datum = avro_string(phone);
 
 	if (avro_record_set(person, "ID", id_datum)
