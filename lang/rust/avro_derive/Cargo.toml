@@ -32,7 +32,7 @@ documentation = "https://docs.rs/apache-avro-derive"
 proc-macro = true
 
 [dependencies]
-darling = "0.14.0"
+darling = "0.20.0"
 quote = "1.0.18"
 syn = {version= "1.0.91", features=["full", "fold"]}
 proc-macro2 = "1.0.37"
